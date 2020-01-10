@@ -5,12 +5,10 @@ import io.swagger.annotations.ApiOperation;
 import io.turntabl.employementprofilingsystem.DAO.EmployeeDAO;
 
 import io.turntabl.employementprofilingsystem.Models.AddEmployee;
-import io.turntabl.employementprofilingsystem.Transfers.Employee;
-import io.turntabl.employementprofilingsystem.Transfers.Project;
-import io.turntabl.employementprofilingsystem.Transfers.SingleProfileTO;
+import io.turntabl.employementprofilingsystem.Utilities.*;
+import io.turntabl.employementprofilingsystem.Transfers.*;
 import io.turntabl.employementprofilingsystem.Transfers.Tech;
-import io.turntabl.employementprofilingsystem.Utilities.Date;
-import io.turntabl.employementprofilingsystem.Utilities.Parsor;
+import io.turntabl.employementprofilingsystem.Utilities.DatePersonal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,7 +25,7 @@ class EmployeeController implements EmployeeDAO {
     JdbcTemplate jdbcTemplate;
 
     Parsor parsor = new Parsor();
-    Date date = new Date();
+    DatePersonal date = new DatePersonal();
 
 
     @ApiOperation("Add New Employee")
@@ -147,7 +145,7 @@ class EmployeeController implements EmployeeDAO {
                         new Object[]{employee.getEmployee_id()},
                         BeanPropertyRowMapper.newInstance(Tech.class)
                 );
-                result.add(this.SingleProfileTOrowMappper(employee,projectTOS, techStack));
+                result.add(SingleProfileTOrowMappper(employee,projectTOS, techStack));
             }
 
             response.put("code","00");
@@ -162,7 +160,7 @@ class EmployeeController implements EmployeeDAO {
         return response;
     }
 
-    private SingleProfileTO SingleProfileTOrowMappper(Employee employee, List<Project> projectTOS, List<Tech> techStack ) throws SQLException {
+    public SingleProfileTO SingleProfileTOrowMappper(Employee employee, List<Project> projectTOS, List<Tech> techStack ) throws SQLException {
         SingleProfileTO singleProfileTO = new SingleProfileTO();
         singleProfileTO.setEmployee(employee);
         singleProfileTO.setProjects(projectTOS);

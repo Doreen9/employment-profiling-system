@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 @Component
-public class Date {
+public class DatePersonal {
     public java.sql.Date getCurrentDate (){
         long millis=System.currentTimeMillis();
         java.sql.Date date=new java.sql.Date(millis);

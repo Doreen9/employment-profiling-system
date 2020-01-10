@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 public class Tech {
     private Integer tech_id;
     private String tech_name;
+    private String tech_status;
 
     public Tech() {
     }
@@ -25,4 +26,8 @@ public class Tech {
     public void setTech_name(String tech_name) {
         this.tech_name = tech_name;
     }
+
+    public String getTech_status() { return tech_status; }
+
+    public void setTech_status(String tech_status) { this.tech_status = tech_status; }
 }

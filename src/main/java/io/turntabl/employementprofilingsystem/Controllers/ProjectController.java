@@ -4,8 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.turntabl.employementprofilingsystem.DAO.ProjectDAO;
 import io.turntabl.employementprofilingsystem.Models.AddProject;
-import io.turntabl.employementprofilingsystem.Utilities.Date;
-import io.turntabl.employementprofilingsystem.Utilities.Parsor;
+import io.turntabl.employementprofilingsystem.Utilities.*;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,7 +23,7 @@ public class ProjectController implements ProjectDAO {
     JdbcTemplate jdbcTemplate;
 
     Parsor parsor = new Parsor();
-    Date date = new Date();
+    DatePersonal date = new DatePersonal();
 
     @ApiOperation("Add New Project")
     @CrossOrigin(origins = "*")

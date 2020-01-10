@@ -10,6 +10,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableAutoConfiguration
 @SpringBootApplication
+@ComponentScan(basePackages = "io.turntabl.*")
 public class EmployementProfilingSystemApplication {
 
 	public static void main(String[] args) {

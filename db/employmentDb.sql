@@ -1,4 +1,3 @@
-
 CREATE TABLE employee (
 
 	employee_id serial primary key,
@@ -10,7 +9,8 @@ CREATE TABLE employee (
 	employee_dev_level text not null,
 	employee_hire_date DATE not null,
 	employee_onLeave BOOLEAN not null,
-	employee_gender text not null
+	employee_gender text not null,
+	employee_status text not null
 );
 
 CREATE TABLE project (
@@ -19,13 +19,15 @@ CREATE TABLE project (
 	project_name text not null,
 	project_description text not null,
 	project_start_date DATE not null,
-	project_end_date DATE not null
+	project_end_date DATE not null,
+	project_status text not null
 );
 
 CREATE TABLE tech (
 
 	tech_id serial primary key,
-	tech_name text not null
+	tech_name text not null,
+	tech_status text not null
 );
 
 CREATE TABLE assignedproject (
@@ -47,5 +49,4 @@ CREATE TABLE employeetech (
 	tech_id INTEGER,
 	employee_id INTEGER
 );
-
 
